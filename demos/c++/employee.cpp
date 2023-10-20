@@ -1,9 +1,15 @@
 #include<stdio.h>
-
 class Employee
 {
     int empid;
     char name[40];
+
+    protected:
+    void setId(int n)
+    {
+        this->empid = n;
+    }
+    
     public:
     
     // default
@@ -24,19 +30,35 @@ class Employee
     {
        return this->empid;
     }
-    void setId(int n)
-    {
-        this->empid = n;
-    }
+   
+};
+
+//  has a relation
+class Company{
+    Employee* emp;
+};
+
+// is a  relation
+class Manager:Employee{
+       int cabinNo;
+       public:
+       int getCabinNo()
+       {
     
+        return this->cabinNo;
+       }
+       void setCabinNo(int n)
+       {
+         this->cabinNo = n;
+       }
+
+       
 };
 
 
 int main(int argc, char const *argv[])
 {
-    Employee e,e2(1000),e3;
-    //e2.setId(200);
-    printf("%d",e.getId());
-    printf("%d",e2.getId());
-    return 0;
+    Manager m1;
+    Employee e;
+    m1.setCabinNo(1000);
 }
