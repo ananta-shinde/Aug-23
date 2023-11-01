@@ -1,42 +1,70 @@
- #include<stdio.h>
- struct Node{
+#include<iostream>
+using namespace std;
+
+class Node{
+    public:
     int data;
-    Node * next = NULL;
- };
+    Node* next = NULL;
+};
 
-  struct Node *insert (Node* current_head, int data) {
-    Node n1;
-   n1.data = data;
-   n1.next = current_head;  
-    return &n1;
+// insert at start
+void push(Node** head,int data)
+{
+     Node* new_node = new Node();
+     new_node->data = data;
+     new_node->next = *head;
+     *head = new_node;
 }
- int main(int argc, char const *argv[])
- {
-   // 1. create empty linked list
-    Node * head = NULL;
-   
-   // 2. create new node
-   Node n1;
-   n1.data = 40;
 
-   // 3.link node to list : list is empty
-   head = &n1;
+// insert at end
+void insert(Node** head,int data)
+{
+     Node* new_node = new Node();
+     new_node->data = data;
+     Node* current = *head;
+     if(current  == NULL)
+     {
+        *head = new_node;
+     }
+     else{
+        while(current->next != NULL)
+     {
+        current = current->next;
+     }
+    current->next = new_node;
+     }
+       
+}
 
-   //4.create second node
-   Node n2;
-   // n2.data = 50;
-   insert(head,60);
+// print a linked list
+void printLinkedList(Node * head)
+{
+    Node* current = head;
+    while (current != NULL)
+    {
+        cout << current->data << " ";
+        current = current->next;
+    }
+    
+}
+ 
 
-   //5.link node to list: list is not empty
-     //a.connect new node first
-     head->next = &n2;
-     //b. copy head into temp, use temp for insert
-     Node *temp = head;
-     temp = temp->next;
 
-     printf("%d",head->data);
-     printf("%d",temp->data);
+int main(int argc, char const *argv[])
+{
+    Node* head = NULL;
+    // push(&head,20);
+    // push(&head,30);
+    // push(&head,40);
+
+    insert(&head,20);
+    insert(&head,50);
+    insert(&head,50);
+    insert(&head,50);
+    insert(&head,50);
+    insert(&head,50);
+
+    printLinkedList(head);
 
     return 0;
- }
- 
+}
