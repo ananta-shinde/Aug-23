@@ -37,7 +37,6 @@ int main(int argc, char const *argv[])
     stack.push(20);
     stack.push(40);
     stack.push(30);
-
     cout << stack.length() <<  endl;
     cout << stack.pop()<< endl;
     cout << stack.pop()<< endl;
