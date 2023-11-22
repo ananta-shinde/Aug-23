@@ -43,6 +43,5 @@ int main(int argc, char const *argv[])
     cout << stack.pop()<< endl;
     cout << stack.pop()<< endl;
     cout << stack.pop();
-     
     return 0;
 }
