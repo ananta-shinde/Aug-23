@@ -2,18 +2,30 @@
 #include<iostream>
 #include<fstream>
 using namespace std;
+class College{
+    public:
+    int id;
+    char name[20];
+    StudentList slist;
+};
 
+class Address{
+       int pincode;
+};
 class Student{
     public:
     int rollNo;
     char name[40];
-
+    College* college;
+    Address address;
     void printStudentData()
     {
         // printf("\n Roll no : %d,Name: %s",rollNo,name);
         cout << "Roll No" << rollNo << "Name :" << name << endl;
     }
 };
+
+
 
 class StudentList{
     int no_of_student = 0;
@@ -48,7 +60,7 @@ class StudentList{
 
         student_list[no_of_student] = s;
         no_of_student++;
-        saveStudentList();
+        // saveStudentList();
         }
         else  
         {
@@ -58,6 +70,7 @@ class StudentList{
 
     void printList()
     {
+         
         for(int i=0;i<no_of_student;i++)
         {
             student_list[i].printStudentData();
@@ -89,9 +102,6 @@ class StudentList{
             }
         }
     }
-
-   
-
 };
 
 
@@ -99,9 +109,13 @@ int main(int argc, char const *argv[])
 {
     StudentList slist;
     Student s1;
+    Student s2;
+    College* c1 = new College();
+    c1->id = 400;
     //slist.addNewStudent();
     // slist.addNewStudent();
     slist.printList();
-     
+    s1.college = c1;
+    s2.college = c1;
     return 0;
 }
