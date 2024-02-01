@@ -1,0 +1,64 @@
+
+Name : doctors appointment app
+
+functionality : 
+1. doctors registration
+2. view appointments
+3. Hospital info
+4. book appointment
+
+entities
+1. doctor
+2. appointment
+3. Hospital
+4. patient
+-------------------------------------------
+doctor:
+data members : 
+-doctorId
+-Name
+-contact
+-specialisation
+-charges
+
+member functions
+- view appointment list
+--------------------------------------------------
+
+Hospital:
+data members :
+-Name
+-address
+-contact
+
+methods
+-doctors list
+-register a doctor
+-view appointment
+
+----------------------------------------------
+
+appointment
+-date
+-doctor Name
+-patient name
+
+
+-----------------------------------------------
+patient
+
+-name
+-contact
+-address
+
+methods
+- book appointment
+
+
+relationships:
+
+Doctor(M) :(1) Hospital // implement doctors array in hospital
+Doctor (1): Patient(M)  // declare doctor as friedclass to patient
+Doctor (1) : Appointment (M) declare doctor as friend to appointment
+Hospital (1): Appintment(M)  declare Hospital as friend to appointment
+Hospital(1) : Patient (M)   declare Hospital as friedclass to patient
