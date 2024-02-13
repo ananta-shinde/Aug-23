@@ -83,6 +83,21 @@ class DoblyLinkedList{
            }
            
       }
+
+      void deleteAtEnd()
+      {
+           if(head != NULL)
+           {
+                Node* temp = head;
+                while(temp->next->next != NULL)
+                {
+                      temp = temp->next;
+                }
+                temp->next->prev = NULL;
+                temp->next = NULL;
+           }
+           
+      }
 };
 int main(int argc, char const *argv[])
 {
@@ -92,6 +107,7 @@ int main(int argc, char const *argv[])
     dlist.insertAtStart(40);
     dlist.insertAtEnd(55);
     dlist.deleteAtStart();
+    dlist.deleteAtEnd();
     dlist.printLinkedList();
     cout << endl;
     dlist.printReversedLinkedList();
